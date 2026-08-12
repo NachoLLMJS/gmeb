@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <meta name="description" content="Connect Reddit and check for accessible r/wallstreetbets activity." />
+  <title>GMEB — Comment. Verify. Claim.</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23e93c37%22/><path d=%22M14 45V19h36v8H24v10h16v-6h10v14z%22 fill=%22%23fff8e9%22/></svg>" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="GMEB home"><span class="brand-mark">G</span><span>GMEB</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#how">HOW IT WORKS</a>
+      <a href="#vault">VAULT</a>
+    </nav>
+    <div id="header-auth"></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero-art" src="/assets/gmeb-desk.png" alt="A late-night retail trading desk with a CRT market chart" />
+      <div class="hero-grain"></div>
+      <div class="ticker-strip" aria-hidden="true"><span>GME EXPOSURE</span><span>COMMUNITY PROOF</span><span>FLAP VAULT</span><span>GMEB CLAIM</span></div>
+      <div class="hero-copy">
+        <p class="eyebrow">THE COMMENT IS THE RECEIPT</p>
+        <h1>YOU POSTED.<br /><em>NOW PROVE IT.</em></h1>
+        <p class="lede">Authenticate with Reddit and check whether its API exposes a real comment from you in <strong>r/wallstreetbets</strong>.</p>
+        <div id="hero-action"></div>
+        <p class="permission-note">READ-ONLY REDDIT ACCESS · WE CANNOT POST, EDIT OR VOTE</p>
+      </div>
+      <div class="hero-stamp" aria-hidden="true">FRONTEND<br />ACCESS<br /><strong>001</strong></div>
+    </section>
+
+    <section class="claim-shell" id="vault">
+      <div class="claim-intro">
+        <p class="section-index">01 / CLAIM DESK</p>
+        <h2>One comment.<br />One verified identity.</h2>
+        <p>GMEB is planned as the claim asset for tokenized GME exposure held through a Flap Vault. This preliminary Reddit check does not authorize a token claim. Wallet binding, campaign rules and the on-chain claim are not connected yet.</p>
+      </div>
+      <article class="claim-ticket" id="claim-card" aria-live="polite">
+        <div class="ticket-top"><span>GMEB ELIGIBILITY TICKET</span><span id="ticket-state">AWAITING LOGIN</span></div>
+        <div class="ticket-body" id="ticket-body">
+          <div class="big-state">?</div>
+          <div>
+            <p class="ticket-label">REDDIT IDENTITY</p>
+            <h3>Not connected</h3>
+            <p>Connect Reddit to begin. We request only identity, history and read scopes.</p>
+          </div>
+        </div>
+        <div class="ticket-footer"><span>ASSET / GMEB</span><span>SOURCE / r/wallstreetbets</span><span>STATUS / FRONTEND</span></div>
+      </article>
+    </section>
+
+    <section class="steps" id="how">
+      <div class="steps-heading"><p class="section-index">02 / PROTOCOL</p><h2>Three moves.<br />No fake proof.</h2></div>
+      <ol>
+        <li><span>01</span><h3>Connect Reddit</h3><p>Authorize the official Reddit OAuth flow. Your password never touches GMEB.</p></li>
+        <li><span>02</span><h3>Find the comment</h3><p>The server performs a preliminary check of accessible history for an r/wallstreetbets contribution.</p></li>
+        <li><span>03</span><h3>Claim GMEB</h3><p>Wallet binding and the Flap Vault claim become available only after contracts are configured.</p></li>
+      </ol>
+    </section>
+
+    <section class="vault-note">
+      <div><p class="eyebrow">VAULT STATUS</p><h2>THE PIPE IS DRAWN.<br />THE FUNDS AREN'T FAKED.</h2></div>
+      <div class="status-grid"><span>REDDIT OAUTH <b>READY · NEEDS CREDENTIALS</b></span><span>COMMENT CHECK <b>READY · NEEDS OAUTH</b></span><span>FLAP VAULT <b>NOT CONNECTED</b></span><span>ONCHAIN CLAIM <b>NOT CONNECTED</b></span></div>
+    </section>
+  </main>
+
+  <footer><span>GMEB / COMMUNITY-GATED GME EXPOSURE</span><span>NOT AFFILIATED WITH REDDIT, r/wallstreetbets OR GAMESTOP</span></footer>
+</body>
+</html>
