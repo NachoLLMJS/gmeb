@@ -41,6 +41,13 @@ test('public copy does not promise a queue or claim authorization', async () => 
   assert.match(html, /does not authorize a token claim/i);
 });
 
+test('public login entry uses the native Devvit playtest, not legacy OAuth setup', async () => {
+  const appJs = await fs.readFile(new URL('../public/app.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(appJs, /REDDIT SETUP REQUIRED/);
+  assert.doesNotMatch(appJs, /href=["']\/auth\/reddit["']/);
+  assert.match(appJs, /https:\/\/www\.reddit\.com\/r\/gmeb6900_dev\/\?playtest=gmeb6900/);
+});
+
 test('eligibility endpoint rate limits repeated requests', async () => {
   const { app } = await import('../server.js');
   const server = app.listen(0, '127.0.0.1');
