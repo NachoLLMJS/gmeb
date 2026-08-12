@@ -19,6 +19,13 @@ Frontend-first claim experience for a future Flap Vault distributing GMEB (token
 
 Only the scopes `identity history read` are requested. The app never asks to post, vote, edit, or message on the user's behalf.
 
+## Production
+
+- Website: https://gmeb.vercel.app
+- Reddit redirect URI: `https://gmeb.vercel.app/auth/reddit/callback`
+
+Production OAuth remains disabled until `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, and `REDDIT_REDIRECT_URI` are configured as sensitive Vercel environment variables and the site is redeployed.
+
 ## Important limitation
 
 Reddit's listing endpoint only exposes the comments available through its API listing window. A very old qualifying comment may not be discoverable. Eligibility is a backend attestation input for the future claim contract; it is not on-chain proof by itself.
