@@ -1,75 +1,141 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0d0d0d" />
-  <meta name="description" content="Connect Reddit and check for accessible r/wallstreetbets activity." />
-  <title>GMEB — Comment. Verify. Claim.</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%23e93c37%22/><path d=%22M14 45V19h36v8H24v10h16v-6h10v14z%22 fill=%22%23fff8e9%22/></svg>" />
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/app.js" type="module"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c5b51">
+  <meta name="description" content="GMEB Office Terminal — a pixel office for BNB Chain NFT workers, onchain stock data and cached market news.">
+  <title>GMEB Office Terminal</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=office-pa-3">
+  <script src="/assets/office/phaser.min.js?v=3.90.0" defer></script>
+  <script src="/office-game.js?v=office-pa-3" defer></script>
+  <script src="/app.js?v=office-pa-3" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="GMEB home"><span class="brand-mark">G</span><span>GMEB</span></a>
-    <nav aria-label="Primary navigation">
-      <a href="#how">HOW IT WORKS</a>
-      <a href="#vault">VAULT</a>
-    </nav>
-    <div id="header-auth"></div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <img class="hero-art" src="/assets/gmeb-desk.png" alt="A late-night retail trading desk with a CRT market chart" />
-      <div class="hero-grain"></div>
-      <div class="ticker-strip" aria-hidden="true"><span>GME EXPOSURE</span><span>COMMUNITY PROOF</span><span>FLAP VAULT</span><span>GMEB CLAIM</span></div>
-      <div class="hero-copy">
-        <p class="eyebrow">THE COMMENT IS THE RECEIPT</p>
-        <h1>YOU POSTED.<br /><em>NOW PROVE IT.</em></h1>
-        <p class="lede">Open the native GMEB app on Reddit and check whether Devvit finds a real comment from you in <strong>r/wallstreetbets</strong>.</p>
-        <div id="hero-action"></div>
-        <p class="permission-note">NATIVE DEVVIT IDENTITY · READ-ONLY COMMENT CHECK</p>
+  <div class="terminal-shell">
+    <header class="system-bar bevel-out">
+      <button class="menu-button" type="button" aria-label="Open GMEB menu"><span class="bnb-mini">◆</span> GMEB</button>
+      <h1>GMEB OFFICE TERMINAL <span>— BNB FLOOR 56</span></h1>
+      <div class="system-actions">
+        <span class="network-light"><i></i> BNB CHAIN</span>
+        <button id="connect-wallet" type="button">CONNECT WALLET</button>
       </div>
-      <div class="hero-stamp" aria-hidden="true">FRONTEND<br />ACCESS<br /><strong>001</strong></div>
-    </section>
+    </header>
 
-    <section class="claim-shell" id="vault">
-      <div class="claim-intro">
-        <p class="section-index">01 / CLAIM DESK</p>
-        <h2>One comment.<br />One verified identity.</h2>
-        <p>GMEB is planned as the claim asset for tokenized GME exposure held through a Flap Vault. This preliminary Reddit check does not authorize a token claim. Wallet binding, campaign rules and the on-chain claim are not connected yet.</p>
-      </div>
-      <article class="claim-ticket" id="claim-card" aria-live="polite">
-        <div class="ticket-top"><span>GMEB ELIGIBILITY TICKET</span><span id="ticket-state">AWAITING LOGIN</span></div>
-        <div class="ticket-body" id="ticket-body">
-          <div class="big-state">?</div>
-          <div>
-            <p class="ticket-label">REDDIT IDENTITY</p>
-            <h3>Not connected</h3>
-            <p>Open the GMEB Devvit app to use your existing Reddit session.</p>
+    <div class="ticker-strip" aria-label="Protocol status">
+      <strong>CONTRACTS PENDING</strong>
+      <div class="ticker-track"><span>GMEB QUOTE VAULT · NOT YET DEPLOYED</span><span>◆ BNB OFFICE FLOOR ONLINE</span><span>🦋 FLAP ERC-20 QUOTE V3 · SPEC REVIEW PENDING</span><span>STOCK ORACLES · PENDING INDEXER</span></div>
+      <time id="terminal-clock">--:--:--</time>
+    </div>
+
+    <main class="desktop-grid">
+      <aside class="left-column">
+        <section class="window stock-desk bevel-out">
+          <div class="titlebar"><span>ONCHAIN STOCK DESK</span><button type="button" aria-label="Minimize">_</button></div>
+          <div class="subbar"><span>SYMBOL</span><span>PRICE</span><span>MCAP</span></div>
+          <div class="stock-table" id="stock-table">
+            <div><b>GME</b><span>ORACLE PENDING</span><em>—</em></div>
+            <div><b>HOOD</b><span>ORACLE PENDING</span><em>—</em></div>
+            <div><b>NVDA</b><span>ORACLE PENDING</span><em>—</em></div>
+            <div><b>TSLA</b><span>ORACLE PENDING</span><em>—</em></div>
+            <div><b>COIN</b><span>ORACLE PENDING</span><em>—</em></div>
           </div>
-        </div>
-        <div class="ticket-footer"><span>ASSET / GMEB</span><span>SOURCE / r/wallstreetbets</span><span>STATUS / FRONTEND</span></div>
-      </article>
-    </section>
+          <p class="truth-label">AWAITING VERIFIED ONCHAIN FEEDS · NO FABRICATED VALUES</p>
+        </section>
 
-    <section class="steps" id="how">
-      <div class="steps-heading"><p class="section-index">02 / PROTOCOL</p><h2>Three moves.<br />No fake proof.</h2></div>
-      <ol>
-        <li><span>01</span><h3>Open on Reddit</h3><p>Reddit provides your signed-in identity directly to the GMEB Devvit app.</p></li>
-        <li><span>02</span><h3>Find the comment</h3><p>Devvit performs a preliminary read-only check of accessible history for an r/wallstreetbets contribution.</p></li>
-        <li><span>03</span><h3>Claim GMEB</h3><p>Wallet binding and the Flap Vault claim become available only after contracts are configured.</p></li>
-      </ol>
-    </section>
+        <section class="window office-stats bevel-out">
+          <div class="titlebar"><span>YOUR OFFICE</span><button type="button" aria-label="Minimize">_</button></div>
+          <div class="portrait-box"><img id="selected-portrait" src="/assets/office/portraits/pixel-agent-0.png?v=pa-3" alt="Selected Pixel Agents worker"><div><small>SELECTED WORKER</small><strong id="selected-worker-name">THE RED LEDGER</strong><span id="selected-worker-role">RISK &amp; LEDGER</span></div></div>
+          <dl>
+            <div><dt>VISIBLE WORKERS</dt><dd id="visible-workers">6</dd></div>
+            <div><dt>GMEB CLAIMABLE</dt><dd>—</dd></div>
+            <div><dt>VAULT STATUS</dt><dd class="amber">PENDING</dd></div>
+          </dl>
+          <button id="replay-mint" class="primary-95" type="button">REPLAY MINT SPAWN</button>
+        </section>
 
-    <section class="vault-note">
-      <div><p class="eyebrow">VAULT STATUS</p><h2>THE PIPE IS DRAWN.<br />THE FUNDS AREN'T FAKED.</h2></div>
-      <div class="status-grid"><span>REDDIT DEVVIT <b>PLAYTEST LIVE</b></span><span>COMMENT CHECK <b>LIVE INSIDE REDDIT</b></span><span>FLAP VAULT <b>NOT CONNECTED</b></span><span>ONCHAIN CLAIM <b>NOT CONNECTED</b></span></div>
-    </section>
-  </main>
+        <section class="brand-board bevel-in" aria-label="BNB and Flap office motivations">
+          <div class="bnb-mark"><i>◆</i><span>BUILD ON<br><b>BNB</b></span></div>
+          <div class="flap-mark"><i>🦋</i><span>POWERED BY<br><b>FLAP</b></span></div>
+        </section>
+      </aside>
 
-  <footer><span>GMEB / COMMUNITY-GATED GME EXPOSURE</span><span>NOT AFFILIATED WITH REDDIT, r/wallstreetbets OR GAMESTOP</span></footer>
+      <section class="center-column">
+        <section class="window simulation-window bevel-out">
+          <div class="titlebar active"><span>OFFICE SIMULATION BOARD</span><div><button id="collision-debug" type="button">COLLISIONS: OFF</button><button type="button" aria-label="Maximize">□</button></div></div>
+          <div class="simulation-toolbar bevel-in">
+            <label>LOCATION:
+              <select id="office-location">
+                <option value="trading">GMEB Trading Floor</option>
+                <option value="bnb-strategy">BNB Strategy Room</option>
+                <option value="flap-lab">Flap Vault Lab</option>
+              </select>
+            </label>
+            <span>OCCUPANTS: <b id="occupant-count">6 / 6 PREVIEW</b></span>
+          </div>
+          <div id="office-canvas" tabindex="0" aria-label="Interactive pixel office with six NFT workers"></div>
+          <div class="canvas-caption"><span><i class="live-dot"></i> NFT EVENT LISTENER: PREVIEW MODE</span><span>RANDOM WALK + WORK CYCLES</span><span>CLICK A WORKER TO INSPECT</span></div>
+        </section>
+
+        <section class="window roster-window bevel-out">
+          <div class="titlebar"><span>YOUR NFT WORKERS</span><span>6 GENESIS PREVIEWS</span></div>
+          <div class="worker-roster" id="worker-roster">
+            <button class="worker-tab selected" type="button" data-worker="0"><img src="/assets/office/portraits/pixel-agent-0.png?v=pa-3" alt="The Red Ledger"><span>#001<br><b>LEDGER</b></span></button>
+            <button class="worker-tab" type="button" data-worker="1"><img src="/assets/office/portraits/pixel-agent-1.png?v=pa-3" alt="The Green Candle"><span>#002<br><b>CANDLE</b></span></button>
+            <button class="worker-tab" type="button" data-worker="2"><img src="/assets/office/portraits/pixel-agent-2.png?v=pa-3" alt="The Squeeze Mechanic"><span>#003<br><b>MECHANIC</b></span></button>
+            <button class="worker-tab" type="button" data-worker="3"><img src="/assets/office/portraits/pixel-agent-3.png?v=pa-3" alt="The Night Auditor"><span>#004<br><b>AUDITOR</b></span></button>
+            <button class="worker-tab" type="button" data-worker="4"><img src="/assets/office/portraits/pixel-agent-4.png?v=pa-3" alt="The Last Holder"><span>#005<br><b>HOLDER</b></span></button>
+            <button class="worker-tab" type="button" data-worker="5"><img src="/assets/office/portraits/pixel-agent-5.png?v=pa-3" alt="The Purple Operator"><span>#006<br><b>OPERATOR</b></span></button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="right-column">
+        <section class="window market-board bevel-out">
+          <div class="titlebar"><span>TOP STOCKS</span><button type="button" aria-label="Minimize">_</button></div>
+          <div class="market-icons"><div>GME</div><div>HOOD</div><div>NVDA</div></div>
+          <ol>
+            <li><b>1</b><span>GME</span><em>FEED PENDING</em></li>
+            <li><b>2</b><span>HOOD</span><em>FEED PENDING</em></li>
+            <li><b>3</b><span>NVDA</span><em>FEED PENDING</em></li>
+          </ol>
+        </section>
+
+        <section class="window news-window bevel-out">
+          <div class="titlebar active"><span>12H MARKET NEWS</span><button id="refresh-news" type="button" title="Uses server cache">↻</button></div>
+          <p class="news-cadence">RSS CACHE REFRESHES EVERY 12 HOURS</p>
+          <div id="news-feed" class="news-feed" aria-live="polite"><p class="loading-line">CONNECTING TO MARKET WIRE...</p></div>
+        </section>
+
+        <section class="window vault-status bevel-out">
+          <div class="titlebar"><span>FLAP VAULT STATUS</span></div>
+          <dl>
+            <div><dt>QUOTE TOKEN</dt><dd>GMEB</dd></div>
+            <div><dt>NETWORK</dt><dd>BNB / 56</dd></div>
+            <div><dt>FACTORY</dt><dd class="amber">NOT YET DEPLOYED</dd></div>
+            <div><dt>NFT VAULT</dt><dd class="amber">NOT YET DEPLOYED</dd></div>
+          </dl>
+          <button type="button" disabled>CLAIM GMEB</button>
+        </section>
+        <section class="window vault-events bevel-out">
+          <div class="titlebar"><span>VAULT EVENT FEED</span></div>
+          <div class="event-feed">
+            <div><time>STATUS</time><b>GMEB ERC-20</b><span>0x46c…15C</span></div>
+            <div><time>WAITING</time><b>Mint event → spawnMintedWorker()</b><span>NFT CONTRACT PENDING</span></div>
+            <div><time>WAITING</time><b>Flap dispatch event</b><span>VAULT CONTRACT PENDING</span></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="taskbar bevel-out">
+      <button type="button"><span class="bnb-mini">◆</span> START</button>
+      <span>GMEB OFFICE.EXE</span>
+      <span>WORKERS: PIXEL AGENTS MIT · ORIGINAL GMEB BRANDING</span>
+      <time id="taskbar-clock">--:--</time>
+    </footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

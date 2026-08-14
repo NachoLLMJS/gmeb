@@ -1,17 +1,22 @@
 {
-  "name": "gmeb-reddit-claim-frontend",
-  "version": "0.1.0",
+  "name": "gmeb-office-terminal",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "node --watch server.js",
     "start": "node server.js",
-    "test": "cross-env NODE_ENV=test node --test",
-    "check": "node --check server.js && node --check public/app.js && cross-env NODE_ENV=test node --test"
+    "qa:office": "node scripts/qa-office.mjs",
+    "test": "cross-env NODE_ENV=test node --test test/*.test.js",
+    "check": "node --check server.js && node --check public/app.js && node --check public/office-game.js && cross-env NODE_ENV=test node --test test/*.test.js"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.6.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "phaser": "^3.90.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.54.2"
   }
 }
